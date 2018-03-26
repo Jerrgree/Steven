@@ -19,6 +19,7 @@ module Steven
   BOT.include!(Coddler)
   BOT.include!(Greeter)
   BOT.include!(Retaliator)
+  BOT.include!(Responder)
 
   at_exit do
     USERS.save_user_data
