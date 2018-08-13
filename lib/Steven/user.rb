@@ -70,7 +70,7 @@ module Steven
     end
 
     def random_trigger
-      Random.rand(10..30)
+      Random.rand(15..30)
     end
   end
 end

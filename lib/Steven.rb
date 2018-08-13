@@ -29,8 +29,17 @@ module Steven
   BOT.include!(Hazer)
   BOT.include!(Retaliator)
 
+  servers = []
+  BOT.ready do
+    servers = BOT.servers
+  end
+
   at_exit do
     USER_MANAGEMENT.save_user_data
+    channels = servers.values.map {|s| s.channels }.flatten.select { |c| c.type == 0 && c.position == 0 }
+    channels.each do |channel|
+      BOT.send_message(channel.id, "ah shit bye")
+    end
   end
 
   BOT.run
